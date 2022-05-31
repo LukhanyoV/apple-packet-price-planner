@@ -1,28 +1,25 @@
 body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	background-color: darkgray;
-    color: white
+	background-color:  #219ebc;
 }
 
 .box {
 	flex: 1;
-	background-color: steelblue;
+	background-color: #8ecae6;
 	padding: 0.75em;
 	margin: 0.75em;
 	border-radius: 0.5em;
 }
 
 .heading {
-    background-color: darkblue;
+    background-color: #8ecae6;
 }
 
 input[type=number] {
+    padding: 5px;
     height: 20px;
     width: 50%;
-}
-
-h4 {
-    color: black
+    border: 2px solid black;
 }
 
 button {
