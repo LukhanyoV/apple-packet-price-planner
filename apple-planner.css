@@ -28,6 +28,10 @@ button {
 	font-weight: bold;
 }
 
+.msg {
+	color: red;
+}
+
 @media (min-width: 768px) {
 	.container {
 		display: flex;
