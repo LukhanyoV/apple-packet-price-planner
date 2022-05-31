@@ -105,7 +105,7 @@ describe('Testing for my ApplePlanner factory function', () => {
             planner.setApplesPerPacket(10)
 
             // how much each packet of apples cost
-            assert.equal(15.00, planner.calculatePricePerPacket())
+            assert.equal(7.50, planner.calculatePricePerPacket())
         })
 
         it("should calculate the recommended selling price for each packet to get the profit", () => {

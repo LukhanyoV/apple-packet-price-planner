@@ -38,14 +38,11 @@ const ApplePlanner = () => {
     const calculatePricePerApple = () => getBoxPrice() / getNumberOfApples()
 
     // calculate the cost price of each packet of apples
-    const calculatePricePerPacket = () => calculatePricePerApple() * calculateNumberOfPackets()
+    const calculatePricePerPacket = () => calculatePricePerApple() * getApplesPerPacket()
 
     // calculate the recommened price per packet to get profit
     const calculateRecommendedPricePerPacket = () => {
-        let profitAmount = getBoxPrice() + (getBoxPrice()*getProfitPercentage()/100)
-        let pricePerApple = profitAmount / getNumberOfApples()
-        let pricePerPacket = pricePerApple * calculateNumberOfPackets()
-        return pricePerPacket
+        return calculatePricePerPacket()+(calculatePricePerPacket()*(getProfitPercentage()/100))
     }
 
     return {
