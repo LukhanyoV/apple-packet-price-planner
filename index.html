@@ -8,7 +8,54 @@
     <link rel="stylesheet" href="./apple-planner.css">
 </head>
 <body>
-    
+    <div class="box heading">
+        <h1>Apple packet price planner</h1>
+    </div>
+    <div class="container">
+        <!-- get the user data widget -->
+        <div class="box inputs">
+            <h2>Apple buying data</h2>
+            <div class="input">
+                <h4>Cost price for a box of apples</h4>
+                <input type="number" placeholder="eg. 150" name="" class="price_apples">
+            </div>
+            <div class="input">
+                <h4>Number of apples in the box</h4>
+                <input type="number" placeholder="eg. 200" name="" class="number_apples">
+            </div>
+            <div class="input">
+                <h4>The packet size apples are sold in</h4>
+                <input type="number" placeholder="eg. 10" name="" class="packet_apples">
+            </div>
+            <div class="input">
+                <h4>Required profit %</h4>
+                <input type="number" placeholder="eg. 15" name="" class="profit_apples">
+            </div>
+            <br>
+            <button>CALCULATE</button>
+        </div>
+
+        <!-- calculation display widget -->
+        <div class="box outputs">
+            <h2>Apple price calculations</h2>
+            <div class="input">
+                <h4>Number of packets</h4>
+                <input type="number" name="" class="calc_packet" readonly>
+            </div>
+            <div class="input">
+                <h4>Cost price per apple</h4>
+                <input type="number" name="" class="calc_apple" readonly>
+            </div>
+            <div class="input">
+                <h4>Cost price per packet</h4>
+                <input type="number" name="" class="calc_packet_cost" readonly>
+            </div>
+            <div class="input">
+                <h4>Recommended packet price</h4>
+                <input type="number" name="" class="calc_packet_profit" readonly>
+            </div>
+        </div>
+    </div>
     <script src="./apple-planner.js"></script>
     <script src="./apple-planner.dom.js"></script>
 </body>
