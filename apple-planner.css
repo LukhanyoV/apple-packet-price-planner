@@ -15,7 +15,7 @@ body {
     background-color: #8ecae6;
 }
 
-input[type=number] {
+input {
     padding: 5px;
     height: 20px;
     width: 50%;
