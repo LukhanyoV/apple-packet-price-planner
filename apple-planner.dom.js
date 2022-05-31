@@ -18,17 +18,27 @@ const applePlanner = ApplePlanner()
 // this function will set the values from the inputs widget
 // and then it will display the output to my output widget
 const calculateAndDisplay = () => {
-    // set the values
-    applePlanner.setBoxPrice(boxPrice.value-"")
-    applePlanner.setNumberOfApples(boxLength.value-"")
-    applePlanner.setApplesPerPacket(packetLength.value-"")
-    applePlanner.setProfitPercentage(profitPercentage.value-"")
-    
-    // display the answers
-    outPacketLength.value = applePlanner.calculateNumberOfPackets()
-    outApplePrice.value = `R${applePlanner.calculatePricePerApple().toFixed(2)}`
-    outPacketPrice.value = `R${applePlanner.calculatePricePerPacket().toFixed(2)}`
-    outPacketProfit.value = `R${applePlanner.calculateRecommendedPricePerPacket().toFixed(2)}`
+    let condition = true
+    let my_values = [boxPrice.value, boxLength.value,packetLength.value].forEach(el => {
+        if(el == "" || el <= 0) condition = false
+    })
+    if(condition){
+        // set the values
+        applePlanner.setBoxPrice(boxPrice.value-"")
+        applePlanner.setNumberOfApples(boxLength.value-"")
+        applePlanner.setApplesPerPacket(packetLength.value-"")
+        applePlanner.setProfitPercentage(profitPercentage.value-"")
+        
+        // display the answers
+        outPacketLength.value = applePlanner.calculateNumberOfPackets()
+        outApplePrice.value = `R${applePlanner.calculatePricePerApple().toFixed(2)}`
+        outPacketPrice.value = `R${applePlanner.calculatePricePerPacket().toFixed(2)}`
+        outPacketProfit.value = `R${applePlanner.calculateRecommendedPricePerPacket().toFixed(2)}`
+    } else {
+        const msg = document.querySelector(".msg")
+        msg.innerHTML = "Please fill in all the fields correctly"
+        setTimeout(()=>msg.innerHTML = "", 2000)
+    }
 }
 
 // add event listner to the calculate button
