@@ -64,4 +64,67 @@ describe('Testing for my ApplePlanner factory function', () => {
             assert.equal(0, planner.getProfitPercentage())
         })
     })
+
+    describe("using the values", () => {
+        it("should be able to calculate the number of packets that can be made", () => {
+            const planner = ApplePlanner()
+
+            // set the number of apples available
+            planner.setNumberOfApples(200)
+
+            // set the number of appples per packet
+            planner.setApplesPerPacket(10)
+
+            // how many packets can be made
+            assert.equal(20, planner.calculateNumberOfPackets())
+        })
+
+        it("should be able to calculate the cost price of each apple", () => {
+            const planner = ApplePlanner()
+
+            // set price for box of apples
+            planner.setBoxPrice(150)
+
+            // set the number of apples available
+            planner.setNumberOfApples(200)
+
+            // how much does each apple cost
+            assert.equal(0.75, planner.calculatePricePerApple())
+        })
+
+        it("should be able to calculate the cost price of each packet", () => {
+            const planner = ApplePlanner()
+
+            // set price for box of apples
+            planner.setBoxPrice(150)
+
+            // set the number of apples available
+            planner.setNumberOfApples(200)
+
+            // set the number of appples per packet
+            planner.setApplesPerPacket(10)
+
+            // how much each packet of apples cost
+            assert.equal(15.00, planner.calculatePricePerPacket())
+        })
+
+        it("should calculate the recommended selling price for each packet to get the profit", () => {
+            const planner = ApplePlanner()
+
+            // set price for box of apples
+            planner.setBoxPrice(100)
+
+            // set the number of apples available
+            planner.setNumberOfApples(100)
+
+            // set the number of appples per packet
+            planner.setApplesPerPacket(10)
+
+            // set the profit percentage
+            planner.setProfitPercentage(50)
+
+            // how much is the recommended selling price for each packet
+            assert.equal(15.00, planner.calculateRecommendedPricePerPacket())
+        })
+    })
 })

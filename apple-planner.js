@@ -5,6 +5,7 @@ const ApplePlanner = () => {
     let applesPerPacket = 0
     let theProfitPercentage = 0
 
+    // setting and getting the values
     // price of the box
     const setBoxPrice = price => theBoxPrice = price > 0 ? price : 0
     const getBoxPrice = () => theBoxPrice
@@ -21,10 +22,39 @@ const ApplePlanner = () => {
     const setProfitPercentage = percentage => theProfitPercentage = percentage > 0 ? percentage : 0
     const getProfitPercentage = () => theProfitPercentage
 
+    // using the values
+    // calculate the number of packets that can be made
+    const calculateNumberOfPackets = () => {
+        let packets = 0
+        let n = getNumberOfApples()
+        while(n >= getApplesPerPacket()){
+            packets++
+            n -= getApplesPerPacket()
+        }
+        return packets
+    }
+
+    // calculate the cost price of each apple
+    const calculatePricePerApple = () => getBoxPrice() / getNumberOfApples()
+
+    // calculate the cost price of each packet of apples
+    const calculatePricePerPacket = () => calculatePricePerApple() * calculateNumberOfPackets()
+
+    // calculate the recommened price per packet to get profit
+    const calculateRecommendedPricePerPacket = () => {
+        let profitAmount = getBoxPrice() + (getBoxPrice()*getProfitPercentage()/100)
+        let pricePerApple = profitAmount / getNumberOfApples()
+        let pricePerPacket = pricePerApple * calculateNumberOfPackets()
+        return pricePerPacket
+    }
+
     return {
         setBoxPrice, getBoxPrice,
         setNumberOfApples, getNumberOfApples,
         setApplesPerPacket, getApplesPerPacket,
-        setProfitPercentage, getProfitPercentage
+        setProfitPercentage, getProfitPercentage,
+
+        calculateNumberOfPackets, calculatePricePerApple,
+        calculatePricePerPacket, calculateRecommendedPricePerPacket
     }
 }
