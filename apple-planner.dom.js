@@ -23,7 +23,7 @@ const calculateAndDisplay = () => {
     let my_values = [boxPrice.value, boxLength.value,packetLength.value].forEach(el => {
         if(el == "" || el <= 0) condition = false
     })
-    if(boxLength.value < packetLength.value){
+    if(boxLength.value-"" < packetLength.value-""){
         msg.innerHTML = "Error: Number of apples per packect greater than apples available"
     } else if(condition){
         // set the values
